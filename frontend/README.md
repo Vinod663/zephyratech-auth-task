@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ZephyraTech Client — Frontend
+
+A modern, high-performance authentication interface built with **Next.js 16**, **React 19**, and **TypeScript**. Designed with a Glassmorphism aesthetic, real-time UX feedback loops, and a security-first routing architecture.
+
+---
+
+## Overview
+
+The ZephyraTech frontend is a production-grade client application that interfaces with a Spring Boot REST API, providing a frictionless authentication experience without sacrificing security or visual quality. Every interaction — from password evaluation to token-gated routing — is handled with purpose.
+
+---
+
+## Features
+
+**Glassmorphism UI**  
+Crafted entirely with Tailwind CSS. Animated aurora orbs run in the background while frosted-glass card components sit in the foreground, creating a layered, depth-driven visual hierarchy.
+
+**Real-Time Password Strength Meter**  
+Client-side evaluation as the user types. Regex patterns assess complexity across three axes: character length, symbol usage, and character variety. Feedback is immediate and color-coded — Red → Orange → Green — before a single network request is made.
+
+**Protected Routing**  
+The Dashboard is a hard gate. Without a valid JWT present in application state, access is denied. No workarounds, no flash of unauthorized content.
+
+**Centralized API Client**  
+An Axios instance handles all HTTP communication. Base URL configuration, interceptors, and error normalization are defined once and consumed everywhere — clean separation between transport logic and UI concerns.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| UI Library | React 19 |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| HTTP Client | Axios |
+
+---
+
+## Prerequisites
+
+- Node.js `v18` or higher
+- A package manager: `npm`, `yarn`, or `pnpm`
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
+**1. Navigate to the frontend directory**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  cd frontend
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**2. Install dependencies**
+```bash
+  npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**3. Start the development server**
+```bash
+  npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The application will be running at `http://localhost:3000`.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
+```
+frontend/
+├── app/                  # Next.js App Router — layouts, pages, and routing
+├── lib/                  # Axios instance and shared utilities
+├── public/               # Static assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Notes
 
-## Deploy on Vercel
+- Ensure the Spring Boot backend is running and reachable on port 8080 before starting the client.
+- JWT tokens are persisted securely in localStorage to maintain sessions across page refreshes.
+- All password strength validation runs client-side to provide instant UI feedback, while the backend enforces strict validation as the final source of truth.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Built as part of the ZephyraTech Authentication Task.*
