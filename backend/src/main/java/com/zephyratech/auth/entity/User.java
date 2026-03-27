@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.annotation.Nonnull;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Collection;
 import java.util.List;
@@ -33,7 +34,8 @@ public class User implements UserDetails {
     @Override
     @Nonnull
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(); // We aren't using complex roles (Admin/User) for this task
+        //default role to all registered users
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
