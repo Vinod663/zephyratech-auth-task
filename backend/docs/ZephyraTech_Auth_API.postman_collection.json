@@ -1,0 +1,102 @@
+{
+  "info": {
+    "_postman_id": "10191a71-b424-4fe5-b423-372b8cb2c4cb",
+    "name": "ZephyraTech Auth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44983684",
+    "_collection_link": "https://go.postman.co/collection/44983684-10191a71-b424-4fe5-b423-372b8cb2c4cb?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register New User",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {}
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"niloshana@zephyratech.com\",\r\n  \"password\": \"StrongPassword123!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/register",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        },
+        "description": "Creates a new user account in the system.\n\n**Validations:**\n\n- Email must be valid and unique.\n    \n- Password must be at least 8 characters, containing uppercase, lowercase, numbers, and special characters.\n    \n\n**Returns:** A JWT Bearer token upon successful registration."
+      },
+      "response": []
+    },
+    {
+      "name": "Authenticate User (Login)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"niloshana@zephyratech.com\",\r\n  \"password\": \"StrongPassword123!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        },
+        "description": "Authenticates an existing user and provides a new session token.\n\n**Returns:** A JWT Bearer token valid for 24 hours."
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}
